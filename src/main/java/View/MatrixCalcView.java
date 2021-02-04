@@ -29,20 +29,117 @@ public class MatrixCalcView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jt00 = new javax.swing.JTextField();
+        jt01 = new javax.swing.JTextField();
+        jt02 = new javax.swing.JTextField();
+        jt03 = new javax.swing.JTextField();
+        jt04 = new javax.swing.JTextField();
+        jt10 = new javax.swing.JTextField();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField28 = new javax.swing.JTextField();
+        jTextField29 = new javax.swing.JTextField();
+        jTextField30 = new javax.swing.JTextField();
+        jt20 = new javax.swing.JTextField();
+        jTextField32 = new javax.swing.JTextField();
+        jTextField33 = new javax.swing.JTextField();
+        jTextField34 = new javax.swing.JTextField();
+        jTextField35 = new javax.swing.JTextField();
+        jt30 = new javax.swing.JTextField();
+        jTextField37 = new javax.swing.JTextField();
+        jTextField38 = new javax.swing.JTextField();
+        jTextField39 = new javax.swing.JTextField();
+        jTextField40 = new javax.swing.JTextField();
+        jt40 = new javax.swing.JTextField();
+        jTextField42 = new javax.swing.JTextField();
+        jTextField43 = new javax.swing.JTextField();
+        jTextField44 = new javax.swing.JTextField();
+        jTextField45 = new javax.swing.JTextField();
+        jTextField46 = new javax.swing.JTextField();
+        jTextField47 = new javax.swing.JTextField();
+        jTextField48 = new javax.swing.JTextField();
+        jTextField49 = new javax.swing.JTextField();
+        jTextField50 = new javax.swing.JTextField();
+        jTextField51 = new javax.swing.JTextField();
+        jTextField52 = new javax.swing.JTextField();
+        jTextField53 = new javax.swing.JTextField();
+        jTextField54 = new javax.swing.JTextField();
+        jTextField55 = new javax.swing.JTextField();
+        jTextField56 = new javax.swing.JTextField();
+        jTextField57 = new javax.swing.JTextField();
+        jTextField58 = new javax.swing.JTextField();
+        jTextField59 = new javax.swing.JTextField();
+        jTextField60 = new javax.swing.JTextField();
+        jTextField61 = new javax.swing.JTextField();
+        jTextField62 = new javax.swing.JTextField();
+        jTextField63 = new javax.swing.JTextField();
+        jTextField64 = new javax.swing.JTextField();
+        jTextField65 = new javax.swing.JTextField();
+        jTextField66 = new javax.swing.JTextField();
+        jTextField67 = new javax.swing.JTextField();
+        jTextField68 = new javax.swing.JTextField();
+        jTextField69 = new javax.swing.JTextField();
+        jTextField70 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Calculadora de matrices");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 500, -1));
+        jPanel1.add(jt00, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 20, -1));
+        jPanel1.add(jt01, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 20, -1));
+        jPanel1.add(jt02, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 20, -1));
+        jPanel1.add(jt03, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 20, -1));
+        jPanel1.add(jt04, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 20, -1));
+        jPanel1.add(jt10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 20, -1));
+        jPanel1.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 20, -1));
+        jPanel1.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 20, -1));
+        jPanel1.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 20, -1));
+        jPanel1.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 20, -1));
+        jPanel1.add(jt20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 20, -1));
+        jPanel1.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 20, -1));
+        jPanel1.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 20, -1));
+        jPanel1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 20, -1));
+        jPanel1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 20, -1));
+        jPanel1.add(jt30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 20, -1));
+        jPanel1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 20, -1));
+        jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 20, -1));
+        jPanel1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 20, -1));
+        jPanel1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 20, -1));
+        jPanel1.add(jt40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 20, -1));
+        jPanel1.add(jTextField42, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 20, -1));
+        jPanel1.add(jTextField43, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 20, -1));
+        jPanel1.add(jTextField44, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 20, -1));
+        jPanel1.add(jTextField45, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 20, -1));
+        jPanel1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 20, -1));
+        jPanel1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 20, -1));
+        jPanel1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 20, -1));
+        jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 20, -1));
+        jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 20, -1));
+        jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 20, -1));
+        jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 20, -1));
+        jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 20, -1));
+        jPanel1.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 20, -1));
+        jPanel1.add(jTextField55, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 20, -1));
+        jPanel1.add(jTextField56, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 20, -1));
+        jPanel1.add(jTextField57, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 20, -1));
+        jPanel1.add(jTextField58, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 20, -1));
+        jPanel1.add(jTextField59, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 20, -1));
+        jPanel1.add(jTextField60, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 20, -1));
+        jPanel1.add(jTextField61, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 20, -1));
+        jPanel1.add(jTextField62, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 20, -1));
+        jPanel1.add(jTextField63, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 20, -1));
+        jPanel1.add(jTextField64, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 20, -1));
+        jPanel1.add(jTextField65, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 20, -1));
+        jPanel1.add(jTextField66, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 20, -1));
+        jPanel1.add(jTextField67, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 20, -1));
+        jPanel1.add(jTextField68, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 20, -1));
+        jPanel1.add(jTextField69, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 20, -1));
+        jPanel1.add(jTextField70, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 20, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,7 +149,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -94,6 +191,57 @@ public class MatrixCalcView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField29;
+    private javax.swing.JTextField jTextField30;
+    private javax.swing.JTextField jTextField32;
+    private javax.swing.JTextField jTextField33;
+    private javax.swing.JTextField jTextField34;
+    private javax.swing.JTextField jTextField35;
+    private javax.swing.JTextField jTextField37;
+    private javax.swing.JTextField jTextField38;
+    private javax.swing.JTextField jTextField39;
+    private javax.swing.JTextField jTextField40;
+    private javax.swing.JTextField jTextField42;
+    private javax.swing.JTextField jTextField43;
+    private javax.swing.JTextField jTextField44;
+    private javax.swing.JTextField jTextField45;
+    private javax.swing.JTextField jTextField46;
+    private javax.swing.JTextField jTextField47;
+    private javax.swing.JTextField jTextField48;
+    private javax.swing.JTextField jTextField49;
+    private javax.swing.JTextField jTextField50;
+    private javax.swing.JTextField jTextField51;
+    private javax.swing.JTextField jTextField52;
+    private javax.swing.JTextField jTextField53;
+    private javax.swing.JTextField jTextField54;
+    private javax.swing.JTextField jTextField55;
+    private javax.swing.JTextField jTextField56;
+    private javax.swing.JTextField jTextField57;
+    private javax.swing.JTextField jTextField58;
+    private javax.swing.JTextField jTextField59;
+    private javax.swing.JTextField jTextField60;
+    private javax.swing.JTextField jTextField61;
+    private javax.swing.JTextField jTextField62;
+    private javax.swing.JTextField jTextField63;
+    private javax.swing.JTextField jTextField64;
+    private javax.swing.JTextField jTextField65;
+    private javax.swing.JTextField jTextField66;
+    private javax.swing.JTextField jTextField67;
+    private javax.swing.JTextField jTextField68;
+    private javax.swing.JTextField jTextField69;
+    private javax.swing.JTextField jTextField70;
+    private javax.swing.JTextField jt00;
+    private javax.swing.JTextField jt01;
+    private javax.swing.JTextField jt02;
+    private javax.swing.JTextField jt03;
+    private javax.swing.JTextField jt04;
+    private javax.swing.JTextField jt10;
+    private javax.swing.JTextField jt20;
+    private javax.swing.JTextField jt30;
+    private javax.swing.JTextField jt40;
     // End of variables declaration//GEN-END:variables
 }
