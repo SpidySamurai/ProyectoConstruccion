@@ -114,7 +114,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
     }
 
     public JButton getjBBinverse() {
-        return jBBtrans;
+        return jBBinverse;
     }
 
     public JTextField getjTColumnaA() {

@@ -62,7 +62,6 @@ public final class MatrixCalcController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (matrixCalcView.getjBAplusB() == e.getSource()) {
             int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
             int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
@@ -156,8 +155,7 @@ public final class MatrixCalcController implements ActionListener {
             int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
             if (Verify.verifySize(rowA, columnA)) {
                 Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
-                int escalar = Integer.parseInt(matrixCalcView.getjTAScalar().getText());
-                float[][] dataResult = matrixCalcModel.multiplicarMatrizAporEscalar(matrixA, escalar);
+                float[][] dataResult = matrixCalcModel.inverttirMatriz(matrixA);
                 matrixCalcView.showMatrixResult(dataResult);
             } else {
                 JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
@@ -168,8 +166,7 @@ public final class MatrixCalcController implements ActionListener {
             int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
             if (Verify.verifySize(rowB, columnB)) {
                 Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
-                int escalar = Integer.parseInt(matrixCalcView.getjTBScalar().getText());
-                float[][] dataResult = matrixCalcModel.multiplicarMatrizAporEscalar(matrixB, escalar);
+                float[][] dataResult = matrixCalcModel.inverttirMatriz(matrixB);
                 matrixCalcView.showMatrixResult(dataResult);
             } else {
                 JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");

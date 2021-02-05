@@ -252,13 +252,13 @@ public abstract class Operacion {
         }
     }
 
-    public static void inversadeMatriz(Matrix matrixInput) {
+    public static Matrix inversadeMatriz(Matrix matrixInput) {
         Matrix matrixIdentidad = new Matrix(matrixInput.getRow(), matrixInput.getColumn());
         Matrix matrixOriginal = new Matrix(matrixInput.getRow(), matrixInput.getColumn());
 
         float aux;
-        Matrix vectorPivote = new Matrix();
-        Matrix vectorPivoteIdentidad = new Matrix();
+        Matrix vectorPivote = new Matrix(100,100);
+        Matrix vectorPivoteIdentidad = new Matrix(100,100);
 
         for (int i = 0; i < matrixInput.getRow(); i++) {
             for (int j = 0; j < matrixInput.getColumn(); j++) {
@@ -329,5 +329,6 @@ public abstract class Operacion {
 
         //printf("La matriz inversa queda :\n");
         //imprimirMatriz(filas,columnas,matrizIdentidad);
+        return matrixIdentidad;
     }
 }

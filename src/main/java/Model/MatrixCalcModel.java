@@ -29,4 +29,9 @@ public class MatrixCalcModel {
         Matrix matrixResult = Operacion.transponerMatriz(matrix);
         return matrixResult.getData();
     }
+    
+    public float[][] inverttirMatriz(Matrix matrix){
+        Matrix matrixResult = Operacion.inversadeMatriz(matrix);
+        return matrixResult.getData();
+    }
 }
