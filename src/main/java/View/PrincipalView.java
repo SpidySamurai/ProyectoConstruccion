@@ -23,7 +23,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     public JButton getJBInit() {
-        return jBInit;
+        return jBCalcMatrix;
     }
 
     public JMenuItem getjMDescripcion() {
@@ -33,6 +33,12 @@ public class PrincipalView extends javax.swing.JFrame {
     public JMenuItem getjMIntegrantes() {
         return jMIntegrantes;
     }
+
+    public JButton getjBSistemaEcuaciones() {
+        return jBSistemaEcuaciones;
+    }
+    
+    
     
     
 
@@ -47,7 +53,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jBInit = new javax.swing.JButton();
+        jBCalcMatrix = new javax.swing.JButton();
+        jBSistemaEcuaciones = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMDescripcion = new javax.swing.JMenuItem();
@@ -63,9 +70,12 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel1.setText("Proyecto Construccion de software");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 49));
 
-        jBInit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jBInit.setText("Iniciar");
-        jPanel1.add(jBInit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 80, -1));
+        jBCalcMatrix.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBCalcMatrix.setText("Calculadora de Matrices");
+        jPanel1.add(jBCalcMatrix, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jBSistemaEcuaciones.setText("Sistemas de ecuaciones");
+        jPanel1.add(jBSistemaEcuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
         jMenu1.setText("?");
 
@@ -129,7 +139,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBInit;
+    private javax.swing.JButton jBCalcMatrix;
+    private javax.swing.JButton jBSistemaEcuaciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMDescripcion;
     private javax.swing.JMenuItem jMIntegrantes;

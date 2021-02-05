@@ -21,6 +21,7 @@ public class PrincipalController implements ActionListener {
 
     private void addListener() {
         principalView.getJBInit().addActionListener(this);
+        principalView.getjBSistemaEcuaciones().addActionListener(this);
         principalView.getjMDescripcion().addActionListener(this);
         principalView.getjMIntegrantes().addActionListener(this);
     }
@@ -34,6 +35,10 @@ public class PrincipalController implements ActionListener {
         if (principalView.getJBInit() == e.getSource()) {
             MatrixCalcController matrixCalculator= new MatrixCalcController();
             matrixCalculator.init();
+        }
+        if(principalView.getjBSistemaEcuaciones() == e.getSource()){
+            EcuacionController ecuacionController = new EcuacionController();
+            ecuacionController.init();
         }
         if(principalView.getjMDescripcion() == e.getSource()){
             new DescripcionView().setVisible(true);

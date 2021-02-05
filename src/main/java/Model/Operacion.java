@@ -196,8 +196,8 @@ public abstract class Operacion {
             }
         }
         float pivote;
-        Matrix vectorPivote = new Matrix();
-        Matrix vectorPivoteValores = new Matrix();
+        Matrix vectorPivote = new Matrix(100,100);
+        Matrix vectorPivoteValores = new Matrix(100,100);
         /* float vectorPivote[] = new float [100];
         float vectorPivoteValores[] = new float [100];*/
 
