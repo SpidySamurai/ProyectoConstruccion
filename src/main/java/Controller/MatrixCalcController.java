@@ -7,6 +7,7 @@ package Controller;
 
 import Model.Matrix;
 import Model.MatrixCalcModel;
+import Model.Operacion;
 import Verify.Verify;
 import View.MatrixCalcView;
 import java.awt.event.ActionEvent;
@@ -43,13 +44,16 @@ public final class MatrixCalcController implements ActionListener {
 
     private Matrix sintetizarMatrix(JTextField[][] matrix, int rowMatrix, int columnMatrix) {
         float[][] data = new float[rowMatrix][columnMatrix];
+        //System.out.println(rowMatrix+" " +columnMatrix);
         for (int i = 0; i < rowMatrix; i++) {
             for (int j = 0; j < columnMatrix; j++) {
-                data[i][j] = Integer.parseInt(matrix[i][j].getText());
+                data[i][j] =Float.parseFloat(matrix[i][j].getText());
             }
         }
         Matrix matrixGenerated = new Matrix(rowMatrix, columnMatrix);
+        System.out.println(matrixGenerated.getRow() + matrixGenerated.getColumn());
         matrixGenerated.setData(data);
+        //Operacion.imprimirMatriz(matrixGenerated);
         return matrixGenerated;
     }
 
@@ -57,13 +61,13 @@ public final class MatrixCalcController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (matrixCalcView.getjBAplusB() == e.getSource()) {
             int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
-            int columnA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
-            int rowB = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
-            int columnB = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
             if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
                 Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
-                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
-               float[][] dataResult =  matrixCalcModel.sumaMatrices(matrixB, matrixB);
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+               float[][] dataResult =  matrixCalcModel.sumaMatrices(matrixA, matrixB);
                matrixCalcView.showMatrixResult(dataResult);
             } else {
                 JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");

@@ -92,6 +92,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
                 jTmatrixResult[i][j].setText(String.valueOf(resultData[i][j]));
             }
         }
+        
     }
 
     public JButton getjBAinverse() {

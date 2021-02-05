@@ -15,6 +15,8 @@ public class Matrix {
     }
 
     public Matrix(int row, int column) {
+        this.row = row;
+        this.column = column;
         data = new float[row][column];
     }
 
