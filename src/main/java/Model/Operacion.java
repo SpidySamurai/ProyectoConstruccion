@@ -7,14 +7,14 @@ package Model;
 public abstract class Operacion {
 
     public static Matrix sumarMatrices(Matrix matrixA, Matrix matrixB) {
-        if (matrixA.getRow() == matrixB.getRow() && matrixA.getRow() == matrixB.getRow()) {
+        if (matrixA.getRow() == matrixB.getRow() && matrixA.getColumn()== matrixB.getColumn()) {
             Matrix matrixResult = new Matrix(matrixA.getRow(), matrixA.getColumn());
             for (int i = 0; i < matrixA.getRow(); i++) {
                 for (int j = 0; j < matrixA.getColumn(); j++) {
                     matrixResult.getData()[i][j] = matrixA.getData()[i][j] + matrixB.getData()[i][j];
                 }
             }
-
+            return matrixResult;
         } else {
             System.out.println("\nAl tener diferentes dimensiones no es posible la suma de matrices.\n");
         }

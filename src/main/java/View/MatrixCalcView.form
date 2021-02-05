@@ -112,7 +112,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="jLFILA">
           <Properties>
             <Property name="text" type="java.lang.String" value="FILA"/>
           </Properties>
@@ -122,7 +122,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jLCOL">
           <Properties>
             <Property name="text" type="java.lang.String" value="COLUMNA"/>
           </Properties>
@@ -132,7 +132,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="jLFILAB">
           <Properties>
             <Property name="text" type="java.lang.String" value="FILA"/>
           </Properties>
@@ -142,7 +142,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="jLCOLB">
           <Properties>
             <Property name="text" type="java.lang.String" value="COLUMNA"/>
           </Properties>

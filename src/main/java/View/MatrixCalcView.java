@@ -1,5 +1,6 @@
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
@@ -18,6 +19,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
         initComponents();
         initJTmatrixComponents();
         setLocationRelativeTo(null);
+           
     }
 
     public void initJTmatrixComponents() {
@@ -84,9 +86,60 @@ public class MatrixCalcView extends javax.swing.JFrame {
         }
     }
 
-    public void showMatrixResult(int[][] resultData) {
-
+    public void showMatrixResult(float[][] resultData) {
+        for (int i = 0; i < resultData.length; i++) {
+            for (int j = 0; j < resultData[i].length; j++) {
+                jTmatrixResult[i][j].setText(String.valueOf(resultData[i][j]));
+            }
+        }
     }
+
+    public JButton getjBAinverse() {
+        return jBAinverse;
+    }
+
+    public JButton getjBAminusB() {
+        return jBAminusB;
+    }
+
+    public JButton getjBAperB() {
+        return jBAperB;
+    }
+
+    public JButton getjBAplusB() {
+        return jBAplusB;
+    }
+
+    public JButton getjBBinverse() {
+        return jBBinverse;
+    }
+
+    public JTextField getjTColumnaA() {
+        return jTColumnaA;
+    }
+
+    public JTextField getjTColumnaB() {
+        return jTColumnaB;
+    }
+
+    public JTextField getjTFilaA() {
+        return jTFilaA;
+    }
+
+    public JTextField getjTFilaB() {
+        return jTFilaB;
+    }
+
+    public JTextField[][] getjTmatrixA() {
+        return jTmatrixA;
+    }
+
+    public JTextField[][] getjTmatrixB() {
+        return jTmatrixB;
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,10 +159,10 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jTColumnaA = new javax.swing.JTextField();
         jTFilaB = new javax.swing.JTextField();
         jTColumnaB = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLFILA = new javax.swing.JLabel();
+        jLCOL = new javax.swing.JLabel();
+        jLFILAB = new javax.swing.JLabel();
+        jLCOLB = new javax.swing.JLabel();
         jBAinverse = new javax.swing.JButton();
         jBBinverse = new javax.swing.JButton();
 
@@ -136,17 +189,17 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jPMatrixPanel.add(jTFilaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 30, -1));
         jPMatrixPanel.add(jTColumnaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, -1));
 
-        jLabel2.setText("FILA");
-        jPMatrixPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 80, -1, -1));
+        jLFILA.setText("FILA");
+        jPMatrixPanel.add(jLFILA, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 80, -1, -1));
 
-        jLabel3.setText("COLUMNA");
-        jPMatrixPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jLCOL.setText("COLUMNA");
+        jPMatrixPanel.add(jLCOL, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
 
-        jLabel4.setText("FILA");
-        jPMatrixPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 80, -1, -1));
+        jLFILAB.setText("FILA");
+        jPMatrixPanel.add(jLFILAB, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 80, -1, -1));
 
-        jLabel5.setText("COLUMNA");
-        jPMatrixPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        jLCOLB.setText("COLUMNA");
+        jPMatrixPanel.add(jLCOLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
         jBAinverse.setText("A-");
         jPMatrixPanel.add(jBAinverse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
@@ -209,11 +262,11 @@ public class MatrixCalcView extends javax.swing.JFrame {
     private javax.swing.JButton jBAperB;
     private javax.swing.JButton jBAplusB;
     private javax.swing.JButton jBBinverse;
+    private javax.swing.JLabel jLCOL;
+    private javax.swing.JLabel jLCOLB;
+    private javax.swing.JLabel jLFILA;
+    private javax.swing.JLabel jLFILAB;
     private javax.swing.JLabel jLTittle;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPMatrixPanel;
     private javax.swing.JTextField jTColumnaA;
     private javax.swing.JTextField jTColumnaB;
