@@ -40,6 +40,8 @@ public final class MatrixCalcController implements ActionListener {
         matrixCalcView.getjBBtrans().addActionListener(this);
         matrixCalcView.getjBAinverse().addActionListener(this);
         matrixCalcView.getjBBinverse().addActionListener(this);
+        matrixCalcView.getjBDetA().addActionListener(this);
+        matrixCalcView.getjBDetB().addActionListener(this);
     }
 
     public void init() {
@@ -168,6 +170,28 @@ public final class MatrixCalcController implements ActionListener {
                 Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
                 float[][] dataResult = matrixCalcModel.inverttirMatriz(matrixB);
                 matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
+        }
+        if (matrixCalcView.getjBDetA() == e.getSource()) {
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            if (Verify.verifySize(rowA, columnA)) {
+                Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
+                float determinanteA = matrixCalcModel.calcDeterminante(matrixA);
+                matrixCalcView.getjTAdeterminante().setText(String.valueOf(determinanteA));
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
+        }
+        if (matrixCalcView.getjBDetB() == e.getSource()) {
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
+            if (Verify.verifySize(rowB, columnB)) {
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+                float determinanteB = matrixCalcModel.calcDeterminante(matrixB);
+                matrixCalcView.getjTBdeterminante().setText(String.valueOf(determinanteB));
             } else {
                 JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
             }

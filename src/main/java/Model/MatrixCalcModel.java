@@ -34,4 +34,9 @@ public class MatrixCalcModel {
         Matrix matrixResult = Operacion.inversadeMatriz(matrix);
         return matrixResult.getData();
     }
+    
+    public float calcDeterminante(Matrix matrix){
+        float determinante = Operacion.determinanteMatriz(matrix);
+        return determinante;
+    }
 }

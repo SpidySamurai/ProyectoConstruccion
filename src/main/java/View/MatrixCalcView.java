@@ -164,6 +164,24 @@ public class MatrixCalcView extends javax.swing.JFrame {
     public JTextField getjTBScalar() {
         return jTBScalar;
     }
+
+    public JButton getjBDetA() {
+        return jBDetA;
+    }
+
+    public JButton getjBDetB() {
+        return jBDetB;
+    }
+
+    public JTextField getjTAdeterminante() {
+        return jTAdeterminante;
+    }
+
+    public JTextField getjTBdeterminante() {
+        return jTBdeterminante;
+    }
+    
+    
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -198,6 +216,12 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jTBScalar = new javax.swing.JTextField();
         jTAScalar = new javax.swing.JTextField();
+        jTBdeterminante = new javax.swing.JTextField();
+        jTAdeterminante = new javax.swing.JTextField();
+        jBDetB = new javax.swing.JButton();
+        jBDetA = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -209,21 +233,21 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jLTittle.setText("Calculadora de matrices");
         jPMatrixPanel.add(jLTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 500, -1));
 
-        jLFILA.setText("FILA");
+        jLFILA.setText("Fila");
         jPMatrixPanel.add(jLFILA, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 80, -1, -1));
 
-        jLCOL.setText("COLUMNA");
-        jPMatrixPanel.add(jLCOL, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jLCOL.setText("Columna");
+        jPMatrixPanel.add(jLCOL, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        jLFILAB.setText("FILA");
+        jLFILAB.setText("Fila");
         jPMatrixPanel.add(jLFILAB, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 80, -1, -1));
 
-        jLCOLB.setText("COLUMNA");
-        jPMatrixPanel.add(jLCOLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        jLCOLB.setText("Columna");
+        jPMatrixPanel.add(jLCOLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
         jPMatrixPanel.add(jTFilaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 30, -1));
-        jPMatrixPanel.add(jTColumnaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 30, -1));
+        jPMatrixPanel.add(jTColumnaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 30, -1));
         jPMatrixPanel.add(jTFilaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 30, -1));
-        jPMatrixPanel.add(jTColumnaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, -1));
+        jPMatrixPanel.add(jTColumnaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 30, -1));
 
         jBAplusB.setText("A + B");
         jPMatrixPanel.add(jBAplusB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 80, -1));
@@ -253,15 +277,33 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jPMatrixPanel.add(jBBperScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 80, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPMatrixPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 0, 50, 500));
+        jPMatrixPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 0, 10, 500));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPMatrixPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 50, 500));
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPMatrixPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 0, 10, 500));
-        jPMatrixPanel.add(jTBScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 30, -1));
-        jPMatrixPanel.add(jTAScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 30, -1));
+        jPMatrixPanel.add(jTBScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, -1));
+        jPMatrixPanel.add(jTAScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 30, -1));
+
+        jTBdeterminante.setEditable(false);
+        jPMatrixPanel.add(jTBdeterminante, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 30, -1));
+
+        jTAdeterminante.setEditable(false);
+        jPMatrixPanel.add(jTAdeterminante, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 30, 20));
+
+        jBDetB.setText("Determinante");
+        jPMatrixPanel.add(jBDetB, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, -1));
+
+        jBDetA.setText("Determinante");
+        jPMatrixPanel.add(jBDetA, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+
+        jLabel1.setText("Escalar");
+        jPMatrixPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+
+        jLabel2.setText("Escalar");
+        jPMatrixPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -322,17 +364,23 @@ public class MatrixCalcView extends javax.swing.JFrame {
     private javax.swing.JButton jBBinverse;
     private javax.swing.JButton jBBperScalar;
     private javax.swing.JButton jBBtrans;
+    private javax.swing.JButton jBDetA;
+    private javax.swing.JButton jBDetB;
     private javax.swing.JLabel jLCOL;
     private javax.swing.JLabel jLCOLB;
     private javax.swing.JLabel jLFILA;
     private javax.swing.JLabel jLFILAB;
     private javax.swing.JLabel jLTittle;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPMatrixPanel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTAScalar;
+    private javax.swing.JTextField jTAdeterminante;
     private javax.swing.JTextField jTBScalar;
+    private javax.swing.JTextField jTBdeterminante;
     private javax.swing.JTextField jTColumnaA;
     private javax.swing.JTextField jTColumnaB;
     private javax.swing.JTextField jTFilaA;
