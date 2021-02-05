@@ -34,6 +34,10 @@ public final class MatrixCalcController implements ActionListener {
         matrixCalcView.getjBAplusB().addActionListener(this);
         matrixCalcView.getjBAminusB().addActionListener(this);
         matrixCalcView.getjBAperB().addActionListener(this);
+        matrixCalcView.getjBAperScalar().addActionListener(this);
+        matrixCalcView.getjBBperScalar().addActionListener(this);
+        matrixCalcView.getjBAtrans().addActionListener(this);
+        matrixCalcView.getjBBtrans().addActionListener(this);
         matrixCalcView.getjBAinverse().addActionListener(this);
         matrixCalcView.getjBBinverse().addActionListener(this);
     }
@@ -52,17 +56,18 @@ public final class MatrixCalcController implements ActionListener {
         }
         Matrix matrixGenerated = new Matrix(rowMatrix, columnMatrix);
         matrixGenerated.setData(data);
-        //Operacion.imprimirMatriz(matrixGenerated);
+        Operacion.imprimirMatriz(matrixGenerated);
         return matrixGenerated;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
-        int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
-        int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
-        int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
+
         if (matrixCalcView.getjBAplusB() == e.getSource()) {
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
             if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
                 Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
                 Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
@@ -73,6 +78,10 @@ public final class MatrixCalcController implements ActionListener {
             }
         }
         if (matrixCalcView.getjBAminusB() == e.getSource()) {
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
             if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
                 Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
                 Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
@@ -83,6 +92,10 @@ public final class MatrixCalcController implements ActionListener {
             }
         }
         if (matrixCalcView.getjBAperB() == e.getSource()) {
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
             if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
                 Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
                 Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
@@ -92,11 +105,75 @@ public final class MatrixCalcController implements ActionListener {
                 JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
             }
         }
+        if (matrixCalcView.getjBAperScalar() == e.getSource()) {
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            if (Verify.verifySize(rowA, columnA)) {
+                Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
+                int escalar = Integer.parseInt(matrixCalcView.getjTAScalar().getText());
+                float[][] dataResult = matrixCalcModel.multiplicarMatrizAporEscalar(matrixA, escalar);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
+        }
+        if (matrixCalcView.getjBBperScalar() == e.getSource()) {
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
+            if (Verify.verifySize(rowB, columnB)) {
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+                int escalar = Integer.parseInt(matrixCalcView.getjTBScalar().getText());
+                float[][] dataResult = matrixCalcModel.multiplicarMatrizAporEscalar(matrixB, escalar);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
+        }
+        if (matrixCalcView.getjBAtrans() == e.getSource()) {
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            if (Verify.verifySize(rowA, columnA)) {
+                Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
+                float[][] dataResult = matrixCalcModel.transponerMatriz(matrixA);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
+        }
+        if (matrixCalcView.getjBBtrans() == e.getSource()) {
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
+            if (Verify.verifySize(rowB, columnB)) {
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+                float[][] dataResult = matrixCalcModel.transponerMatriz(matrixB);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
+        }
         if (matrixCalcView.getjBAinverse() == e.getSource()) {
-
+            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+            if (Verify.verifySize(rowA, columnA)) {
+                Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
+                int escalar = Integer.parseInt(matrixCalcView.getjTAScalar().getText());
+                float[][] dataResult = matrixCalcModel.multiplicarMatrizAporEscalar(matrixA, escalar);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
         }
         if (matrixCalcView.getjBBinverse() == e.getSource()) {
-
+            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
+            if (Verify.verifySize(rowB, columnB)) {
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+                int escalar = Integer.parseInt(matrixCalcView.getjTBScalar().getText());
+                float[][] dataResult = matrixCalcModel.multiplicarMatrizAporEscalar(matrixB, escalar);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
         }
     }
 

@@ -19,4 +19,14 @@ public class MatrixCalcModel {
         Matrix matrixResult = Operacion.multiplicarMatrices(a, b);
         return matrixResult.getData();
     }
+    
+    public float[][] multiplicarMatrizAporEscalar(Matrix a,int escalar){
+        Matrix matrixResult = Operacion.multiplicarPorEscalar(a, escalar);
+        return matrixResult.getData();
+    }
+
+    public float[][] transponerMatriz(Matrix matrix) {
+        Matrix matrixResult = Operacion.transponerMatriz(matrix);
+        return matrixResult.getData();
+    }
 }

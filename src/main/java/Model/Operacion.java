@@ -7,7 +7,7 @@ package Model;
 public abstract class Operacion {
 
     public static Matrix sumarMatrices(Matrix matrixA, Matrix matrixB) {
-        if (matrixA.getRow() == matrixB.getRow() && matrixA.getColumn()== matrixB.getColumn()) {
+        if (matrixA.getRow() == matrixB.getRow() && matrixA.getColumn() == matrixB.getColumn()) {
             Matrix matrixResult = new Matrix(matrixA.getRow(), matrixA.getColumn());
             for (int i = 0; i < matrixA.getRow(); i++) {
                 for (int j = 0; j < matrixA.getColumn(); j++) {
@@ -21,9 +21,9 @@ public abstract class Operacion {
         }
         return null;
     }
-    
-    public static Matrix restarMatrices(Matrix matrixA,Matrix matrixB){
-        if (matrixA.getRow() == matrixB.getRow() && matrixA.getColumn()== matrixB.getColumn()) {
+
+    public static Matrix restarMatrices(Matrix matrixA, Matrix matrixB) {
+        if (matrixA.getRow() == matrixB.getRow() && matrixA.getColumn() == matrixB.getColumn()) {
             Matrix matrixResult = new Matrix(matrixA.getRow(), matrixA.getColumn());
             for (int i = 0; i < matrixA.getRow(); i++) {
                 for (int j = 0; j < matrixA.getColumn(); j++) {
@@ -37,19 +37,19 @@ public abstract class Operacion {
         }
         return null;
     }
-    
-    public static void imprimirMatriz(Matrix matrix){
+
+    public static void imprimirMatriz(Matrix matrix) {
         float[][] data = matrix.getData();
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
-                System.out.print(data[i][j]+" ");
+                System.out.print(data[i][j] + " ");
             }
             System.out.println("");
         }
     }
 
     public static Matrix multiplicarPorEscalar(Matrix matrixA, int scalar) {
-        Matrix matrixResult = new Matrix();
+        Matrix matrixResult = new Matrix(matrixA.getRow(),matrixA.getColumn());
         for (int i = 0; i < matrixA.getRow(); i++) {
             for (int j = 0; j < matrixA.getColumn(); j++) {
                 matrixResult.getData()[i][j] = matrixA.getData()[i][j] * scalar;
@@ -67,9 +67,9 @@ public abstract class Operacion {
                         matrixResult.getData()[i][j] += (matrixA.getData()[i][k] * matrixB.getData()[k][j]);
                     }
                 }
-                imprimirMatriz(matrixResult);
-                return matrixResult;
             }
+            imprimirMatriz(matrixResult);
+            return matrixResult;
         } else {
             System.out.println("\nAl no coincidir las columnas de la matriz A con las filas de la matriz B,"
                     + " no es posible realizar la multiplicaciÃ³n de matrices.");
@@ -79,11 +79,13 @@ public abstract class Operacion {
 
     public static Matrix transponerMatriz(Matrix matrixA) {
         Matrix matrixResult = new Matrix(matrixA.getColumn(), matrixA.getRow());
-        for (int i = 0; i < matrixA.getRow(); i++) {
-            for (int j = 0; j < matrixA.getColumn(); j++) {
+        for (int i = 0; i < matrixResult.getRow(); i++) {
+            for (int j = 0; j < matrixResult.getColumn(); j++) {
                 matrixResult.getData()[i][j] = matrixA.getData()[j][i];
             }
         }
+        imprimirMatriz(matrixA);
+        imprimirMatriz(matrixResult);
         return matrixResult;
     }
 
