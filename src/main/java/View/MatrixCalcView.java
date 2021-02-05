@@ -12,8 +12,8 @@ public class MatrixCalcView extends javax.swing.JFrame {
     private javax.swing.JTextField jTmatrixA[][];
     private javax.swing.JTextField jTmatrixB[][];
     private javax.swing.JTextField jTmatrixResult[][];
-    private final int WMATRIXBOX = 20;
-    private final int HMATRIXBOX = -1;
+    private final int WMATRIXBOX = 30;
+    private final int HMATRIXBOX = 30;
 
     public MatrixCalcView() {
         initComponents();

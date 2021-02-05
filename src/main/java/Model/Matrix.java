@@ -42,5 +42,7 @@ public class Matrix {
 
     public void setData(float[][] data) {
         this.data = data;
+        this.row = data.length;
+        this.column = data[0].length;
     }
 }
