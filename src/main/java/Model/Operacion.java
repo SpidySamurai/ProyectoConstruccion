@@ -22,6 +22,22 @@ public abstract class Operacion {
         return null;
     }
     
+    public static Matrix restarMatrices(Matrix matrixA,Matrix matrixB){
+        if (matrixA.getRow() == matrixB.getRow() && matrixA.getColumn()== matrixB.getColumn()) {
+            Matrix matrixResult = new Matrix(matrixA.getRow(), matrixA.getColumn());
+            for (int i = 0; i < matrixA.getRow(); i++) {
+                for (int j = 0; j < matrixA.getColumn(); j++) {
+                    matrixResult.getData()[i][j] = matrixA.getData()[i][j] - matrixB.getData()[i][j];
+                }
+            }
+            imprimirMatriz(matrixResult);
+            return matrixResult;
+        } else {
+            System.out.println("\nAl tener diferentes dimensiones no es posible la resta de matrices.\n");
+        }
+        return null;
+    }
+    
     public static void imprimirMatriz(Matrix matrix){
         float[][] data = matrix.getData();
         for (int i = 0; i < data.length; i++) {
@@ -51,6 +67,7 @@ public abstract class Operacion {
                         matrixResult.getData()[i][j] += (matrixA.getData()[i][k] * matrixB.getData()[k][j]);
                     }
                 }
+                imprimirMatriz(matrixResult);
                 return matrixResult;
             }
         } else {

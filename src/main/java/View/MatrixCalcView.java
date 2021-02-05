@@ -39,7 +39,6 @@ public class MatrixCalcView extends javax.swing.JFrame {
                 jTmatrixA[i][j] = new JTextField();
                 jTmatrixB[i][j] = new JTextField();
                 jTmatrixResult[i][j] = new JTextField();
-
             }
         }
     }
@@ -51,6 +50,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
         for (int i = 0; i < 5; i++) {
             matrixAposX = 30;
             for (int j = 0; j < 5; j++) {
+                jTmatrixA[i][j].setHorizontalAlignment(JTextField.CENTER);
                 jPMatrixPanel.add(jTmatrixA[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixAposX, matrixAposY, WMATRIXBOX, HMATRIXBOX));
                 matrixAposX += 30;
             }
@@ -65,6 +65,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
         for (int i = 0; i < 5; i++) {
             matrixBposX = 330;
             for (int j = 0; j < 5; j++) {
+                jTmatrixB[i][j].setHorizontalAlignment(JTextField.CENTER);
                 jPMatrixPanel.add(jTmatrixB[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixBposX, matrixBposY, WMATRIXBOX, HMATRIXBOX));
                 matrixBposX += 30;
             }
@@ -79,6 +80,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
             matrixRposX = 180;
             for (int j = 0; j < 5; j++) {
                 jTmatrixResult[i][j].setEditable(false);
+                jTmatrixResult[i][j].setHorizontalAlignment(JTextField.CENTER);
                 jPMatrixPanel.add(jTmatrixResult[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX, HMATRIXBOX));
                 matrixRposX += 30;
             }

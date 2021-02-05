@@ -47,11 +47,10 @@ public final class MatrixCalcController implements ActionListener {
         //System.out.println(rowMatrix+" " +columnMatrix);
         for (int i = 0; i < rowMatrix; i++) {
             for (int j = 0; j < columnMatrix; j++) {
-                data[i][j] =Float.parseFloat(matrix[i][j].getText());
+                data[i][j] = Float.parseFloat(matrix[i][j].getText());
             }
         }
         Matrix matrixGenerated = new Matrix(rowMatrix, columnMatrix);
-        System.out.println(matrixGenerated.getRow() + matrixGenerated.getColumn());
         matrixGenerated.setData(data);
         //Operacion.imprimirMatriz(matrixGenerated);
         return matrixGenerated;
@@ -59,25 +58,39 @@ public final class MatrixCalcController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
+        int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
+        int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
+        int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
         if (matrixCalcView.getjBAplusB() == e.getSource()) {
-            int rowA = Integer.parseInt(matrixCalcView.getjTFilaA().getText());
-            int columnA = Integer.parseInt(matrixCalcView.getjTColumnaA().getText());
-            int rowB = Integer.parseInt(matrixCalcView.getjTFilaB().getText());
-            int columnB = Integer.parseInt(matrixCalcView.getjTColumnaB().getText());
             if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
                 Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
                 Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
-               float[][] dataResult =  matrixCalcModel.sumaMatrices(matrixA, matrixB);
-               matrixCalcView.showMatrixResult(dataResult);
+                float[][] dataResult = matrixCalcModel.sumaMatrices(matrixA, matrixB);
+                matrixCalcView.showMatrixResult(dataResult);
             } else {
                 JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
             }
         }
         if (matrixCalcView.getjBAminusB() == e.getSource()) {
-
+            if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
+                Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+                float[][] dataResult = matrixCalcModel.restaMatrices(matrixA, matrixB);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
         }
         if (matrixCalcView.getjBAperB() == e.getSource()) {
-
+            if (Verify.verifySize(rowA, columnA) && Verify.verifySize(rowB, columnB)) {
+                Matrix matrixA = sintetizarMatrix(matrixCalcView.getjTmatrixA(), rowA, columnA);
+                Matrix matrixB = sintetizarMatrix(matrixCalcView.getjTmatrixB(), rowB, columnB);
+                float[][] dataResult = matrixCalcModel.multiplicarMatrices(matrixA, matrixB);
+                matrixCalcView.showMatrixResult(dataResult);
+            } else {
+                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+            }
         }
         if (matrixCalcView.getjBAinverse() == e.getSource()) {
 
