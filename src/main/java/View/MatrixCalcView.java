@@ -1,17 +1,91 @@
 package View;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author Javier
  */
 public class MatrixCalcView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MatrixCalcView
-     */
+    private javax.swing.JTextField jTmatrixA[][];
+    private javax.swing.JTextField jTmatrixB[][];
+    private javax.swing.JTextField jTmatrixResult[][];
+    private final int WMATRIXBOX = 20;
+    private final int HMATRIXBOX = -1;
+
     public MatrixCalcView() {
         initComponents();
+        initJTmatrixComponents();
         setLocationRelativeTo(null);
+    }
+
+    public void initJTmatrixComponents() {
+        initMatrixArray();
+        posJTmatrixA();
+        posJTmatrixB();
+        posJTmatrixResult();
+    }
+
+    public void initMatrixArray() {
+        jTmatrixA = new JTextField[5][5];
+        jTmatrixB = new JTextField[5][5];
+        jTmatrixResult = new JTextField[5][5];
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                jTmatrixA[i][j] = new JTextField();
+                jTmatrixB[i][j] = new JTextField();
+                jTmatrixResult[i][j] = new JTextField();
+
+            }
+        }
+    }
+
+    public void posJTmatrixA() {
+        int matrixAposX;
+        int matrixAposY = 140;
+
+        for (int i = 0; i < 5; i++) {
+            matrixAposX = 30;
+            for (int j = 0; j < 5; j++) {
+                jPMatrixPanel.add(jTmatrixA[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixAposX, matrixAposY, WMATRIXBOX, HMATRIXBOX));
+                matrixAposX += 30;
+            }
+            matrixAposY += 30;
+        }
+    }
+
+    public void posJTmatrixB() {
+        int matrixBposX;
+        int matrixBposY = 140;
+
+        for (int i = 0; i < 5; i++) {
+            matrixBposX = 330;
+            for (int j = 0; j < 5; j++) {
+                jPMatrixPanel.add(jTmatrixB[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixBposX, matrixBposY, WMATRIXBOX, HMATRIXBOX));
+                matrixBposX += 30;
+            }
+            matrixBposY += 30;
+        }
+    }
+
+    public void posJTmatrixResult() {
+        int matrixRposX;
+        int matrixRposY = 320;
+        for (int i = 0; i < 5; i++) {
+            matrixRposX = 180;
+            for (int j = 0; j < 5; j++) {
+                jTmatrixResult[i][j].setEditable(false);
+                jPMatrixPanel.add(jTmatrixResult[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX, HMATRIXBOX));
+                matrixRposX += 30;
+            }
+            matrixRposY += 30;
+        }
+    }
+
+    public void showMatrixResult(int[][] resultData) {
+
     }
 
     /**
@@ -23,292 +97,76 @@ public class MatrixCalcView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jtA00 = new javax.swing.JTextField();
-        jtA01 = new javax.swing.JTextField();
-        jtA02 = new javax.swing.JTextField();
-        jtA03 = new javax.swing.JTextField();
-        jtA04 = new javax.swing.JTextField();
-        jtA10 = new javax.swing.JTextField();
-        jtA11 = new javax.swing.JTextField();
-        jtA12 = new javax.swing.JTextField();
-        jtA13 = new javax.swing.JTextField();
-        jtA14 = new javax.swing.JTextField();
-        jtA20 = new javax.swing.JTextField();
-        jtA21 = new javax.swing.JTextField();
-        jtA22 = new javax.swing.JTextField();
-        jtA23 = new javax.swing.JTextField();
-        jtA24 = new javax.swing.JTextField();
-        jtA30 = new javax.swing.JTextField();
-        jtA31 = new javax.swing.JTextField();
-        jtA32 = new javax.swing.JTextField();
-        jtA33 = new javax.swing.JTextField();
-        jtA34 = new javax.swing.JTextField();
-        jtA40 = new javax.swing.JTextField();
-        jtA41 = new javax.swing.JTextField();
-        jtA42 = new javax.swing.JTextField();
-        jtA43 = new javax.swing.JTextField();
-        jtA44 = new javax.swing.JTextField();
-        jtB00 = new javax.swing.JTextField();
-        jtB01 = new javax.swing.JTextField();
-        jtB02 = new javax.swing.JTextField();
-        jtB03 = new javax.swing.JTextField();
-        jtB04 = new javax.swing.JTextField();
-        jtB10 = new javax.swing.JTextField();
-        jtB11 = new javax.swing.JTextField();
-        jtB12 = new javax.swing.JTextField();
-        jtB13 = new javax.swing.JTextField();
-        jtB14 = new javax.swing.JTextField();
-        jtB20 = new javax.swing.JTextField();
-        jtB21 = new javax.swing.JTextField();
-        jtB22 = new javax.swing.JTextField();
-        jtB23 = new javax.swing.JTextField();
-        jtB24 = new javax.swing.JTextField();
-        jtB30 = new javax.swing.JTextField();
-        jtB31 = new javax.swing.JTextField();
-        jtB32 = new javax.swing.JTextField();
-        jtB33 = new javax.swing.JTextField();
-        jtB34 = new javax.swing.JTextField();
-        jtB40 = new javax.swing.JTextField();
-        jtB41 = new javax.swing.JTextField();
-        jtB42 = new javax.swing.JTextField();
-        jtB43 = new javax.swing.JTextField();
-        jtB44 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jPMatrixPanel = new javax.swing.JPanel();
+        jLTittle = new javax.swing.JLabel();
+        jBAplusB = new javax.swing.JButton();
+        jBAminusB = new javax.swing.JButton();
+        jBAperB = new javax.swing.JButton();
+        jTFilaA = new javax.swing.JTextField();
+        jTColumnaA = new javax.swing.JTextField();
+        jTFilaB = new javax.swing.JTextField();
+        jTColumnaB = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jBAinverse = new javax.swing.JButton();
+        jBBinverse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPMatrixPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Calculadora de matrices");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 500, -1));
-        jPanel1.add(jtA00, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 20, -1));
-        jPanel1.add(jtA01, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 20, -1));
-        jPanel1.add(jtA02, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 20, -1));
-        jPanel1.add(jtA03, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 20, -1));
-        jPanel1.add(jtA04, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 20, -1));
+        jLTittle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLTittle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTittle.setText("Calculadora de matrices");
+        jPMatrixPanel.add(jLTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 500, -1));
 
-        jtA10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtA10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 20, -1));
-        jPanel1.add(jtA11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 20, -1));
-        jPanel1.add(jtA12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 20, -1));
-        jPanel1.add(jtA13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 20, -1));
-        jPanel1.add(jtA14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 20, -1));
+        jBAplusB.setText("A + B");
+        jPMatrixPanel.add(jBAplusB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
-        jtA20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtA20ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtA20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 20, -1));
-        jPanel1.add(jtA21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 20, -1));
-        jPanel1.add(jtA22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 20, -1));
-        jPanel1.add(jtA23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 20, -1));
-        jPanel1.add(jtA24, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 20, -1));
+        jBAminusB.setText("A - B");
+        jPMatrixPanel.add(jBAminusB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 60, -1));
 
-        jtA30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtA30ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtA30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 20, -1));
-        jPanel1.add(jtA31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 20, -1));
-        jPanel1.add(jtA32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 20, -1));
-        jPanel1.add(jtA33, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 20, -1));
-        jPanel1.add(jtA34, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 20, -1));
-
-        jtA40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtA40ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtA40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 20, -1));
-        jPanel1.add(jtA41, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 20, -1));
-        jPanel1.add(jtA42, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 20, -1));
-
-        jtA43.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtA43ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtA43, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 20, -1));
-        jPanel1.add(jtA44, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 20, -1));
-        jPanel1.add(jtB00, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 20, -1));
-        jPanel1.add(jtB01, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 20, -1));
-        jPanel1.add(jtB02, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 20, -1));
-        jPanel1.add(jtB03, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 20, -1));
-        jPanel1.add(jtB04, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 20, -1));
-
-        jtB10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtB10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 20, -1));
-        jPanel1.add(jtB11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 20, -1));
-        jPanel1.add(jtB12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 20, -1));
-        jPanel1.add(jtB13, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 20, -1));
-        jPanel1.add(jtB14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 20, -1));
-
-        jtB20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtB20ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtB20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 20, -1));
-        jPanel1.add(jtB21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 20, -1));
-        jPanel1.add(jtB22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 20, -1));
-        jPanel1.add(jtB23, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 20, -1));
-        jPanel1.add(jtB24, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 20, -1));
-
-        jtB30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtB30ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtB30, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 20, -1));
-        jPanel1.add(jtB31, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 20, -1));
-        jPanel1.add(jtB32, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 20, -1));
-        jPanel1.add(jtB33, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 20, -1));
-        jPanel1.add(jtB34, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 20, -1));
-
-        jtB40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtB40ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtB40, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 20, -1));
-        jPanel1.add(jtB41, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 20, -1));
-        jPanel1.add(jtB42, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 20, -1));
-
-        jtB43.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtB43ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtB43, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 20, -1));
-        jPanel1.add(jtB44, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 20, -1));
-
-        jButton1.setText("A + B");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
-
-        jButton2.setText("A - B");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 60, -1));
-
-        jButton3.setText("A * B");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 60, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 30, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 30, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 30, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, -1));
+        jBAperB.setText("A * B");
+        jPMatrixPanel.add(jBAperB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 60, -1));
+        jPMatrixPanel.add(jTFilaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 30, -1));
+        jPMatrixPanel.add(jTColumnaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 30, -1));
+        jPMatrixPanel.add(jTFilaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 30, -1));
+        jPMatrixPanel.add(jTColumnaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, -1));
 
         jLabel2.setText("FILA");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 80, -1, -1));
+        jPMatrixPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 80, -1, -1));
 
         jLabel3.setText("COLUMNA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jPMatrixPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
 
         jLabel4.setText("FILA");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 80, -1, -1));
+        jPMatrixPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 80, -1, -1));
 
         jLabel5.setText("COLUMNA");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        jPMatrixPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 0, -1, 510));
+        jBAinverse.setText("A-");
+        jPMatrixPanel.add(jBAinverse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, 510));
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 0, -1, 510));
-
-        jButton4.setText("A-");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
-
-        jButton5.setText("B-");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
-
-        jButton6.setText("jButton6");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 240, -1, -1));
+        jBBinverse.setText("B-");
+        jPMatrixPanel.add(jBBinverse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtA10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtA10ActionPerformed
-
-    private void jtA20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtA20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtA20ActionPerformed
-
-    private void jtA30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtA30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtA30ActionPerformed
-
-    private void jtA40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtA40ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtA40ActionPerformed
-
-    private void jtA43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtA43ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtA43ActionPerformed
-
-    private void jtB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtB10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtB10ActionPerformed
-
-    private void jtB20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtB20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtB20ActionPerformed
-
-    private void jtB30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtB30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtB30ActionPerformed
-
-    private void jtB40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtB40ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtB40ActionPerformed
-
-    private void jtB43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtB43ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtB43ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,74 +204,20 @@ public class MatrixCalcView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jBAinverse;
+    private javax.swing.JButton jBAminusB;
+    private javax.swing.JButton jBAperB;
+    private javax.swing.JButton jBAplusB;
+    private javax.swing.JButton jBBinverse;
+    private javax.swing.JLabel jLTittle;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jtA00;
-    private javax.swing.JTextField jtA01;
-    private javax.swing.JTextField jtA02;
-    private javax.swing.JTextField jtA03;
-    private javax.swing.JTextField jtA04;
-    private javax.swing.JTextField jtA10;
-    private javax.swing.JTextField jtA11;
-    private javax.swing.JTextField jtA12;
-    private javax.swing.JTextField jtA13;
-    private javax.swing.JTextField jtA14;
-    private javax.swing.JTextField jtA20;
-    private javax.swing.JTextField jtA21;
-    private javax.swing.JTextField jtA22;
-    private javax.swing.JTextField jtA23;
-    private javax.swing.JTextField jtA24;
-    private javax.swing.JTextField jtA30;
-    private javax.swing.JTextField jtA31;
-    private javax.swing.JTextField jtA32;
-    private javax.swing.JTextField jtA33;
-    private javax.swing.JTextField jtA34;
-    private javax.swing.JTextField jtA40;
-    private javax.swing.JTextField jtA41;
-    private javax.swing.JTextField jtA42;
-    private javax.swing.JTextField jtA43;
-    private javax.swing.JTextField jtA44;
-    private javax.swing.JTextField jtB00;
-    private javax.swing.JTextField jtB01;
-    private javax.swing.JTextField jtB02;
-    private javax.swing.JTextField jtB03;
-    private javax.swing.JTextField jtB04;
-    private javax.swing.JTextField jtB10;
-    private javax.swing.JTextField jtB11;
-    private javax.swing.JTextField jtB12;
-    private javax.swing.JTextField jtB13;
-    private javax.swing.JTextField jtB14;
-    private javax.swing.JTextField jtB20;
-    private javax.swing.JTextField jtB21;
-    private javax.swing.JTextField jtB22;
-    private javax.swing.JTextField jtB23;
-    private javax.swing.JTextField jtB24;
-    private javax.swing.JTextField jtB30;
-    private javax.swing.JTextField jtB31;
-    private javax.swing.JTextField jtB32;
-    private javax.swing.JTextField jtB33;
-    private javax.swing.JTextField jtB34;
-    private javax.swing.JTextField jtB40;
-    private javax.swing.JTextField jtB41;
-    private javax.swing.JTextField jtB42;
-    private javax.swing.JTextField jtB43;
-    private javax.swing.JTextField jtB44;
+    private javax.swing.JPanel jPMatrixPanel;
+    private javax.swing.JTextField jTColumnaA;
+    private javax.swing.JTextField jTColumnaB;
+    private javax.swing.JTextField jTFilaA;
+    private javax.swing.JTextField jTFilaB;
     // End of variables declaration//GEN-END:variables
 }
