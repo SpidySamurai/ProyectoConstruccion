@@ -64,16 +64,17 @@ public class EcuacionView extends javax.swing.JFrame {
             for (int j = 0; j < 5; j++) {
                 jTmatrixResult[i].setEditable(false);
                 jTmatrixResult[i].setHorizontalAlignment(JTextField.CENTER);
-                jPMatrixPanel.add(jTmatrixResult[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX, HMATRIXBOX));
+                jPMatrixPanel.add(jTmatrixResult[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX*2, HMATRIXBOX));
             }
             matrixRposY += 30;
         }
     }
 
-    public void showResult(float[] resultData) {
+    public void showResult(float[][] resultData) {
         for (int i = 0; i < resultData.length; i++) {
-            jTmatrixResult[i].setText(String.valueOf(resultData[i]));
-
+            for (int j = 0; j < resultData[i].length; j++) {
+            jTmatrixResult[i].setText(String.format("%.2f", resultData[i][j]));
+            }
         }
     }
 
@@ -84,6 +85,20 @@ public class EcuacionView extends javax.swing.JFrame {
     public JButton getjBGauss() {
         return jBGauss;
     }
+
+    public JTextField getjTColumnaA() {
+        return jTColumnaA;
+    }
+
+    public JTextField getjTFilaA() {
+        return jTFilaA;
+    }
+
+    public JTextField[][] getjTmatrix() {
+        return jTmatrix;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,10 +142,10 @@ public class EcuacionView extends javax.swing.JFrame {
         jPMatrixPanel.add(jTColumnaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 30, -1));
 
         jBGauss.setText("GAUSS");
-        jPMatrixPanel.add(jBGauss, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 90, -1));
+        jPMatrixPanel.add(jBGauss, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 90, -1));
 
         jBCramer.setText("CRAMER");
-        jPMatrixPanel.add(jBCramer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 90, -1));
+        jPMatrixPanel.add(jBCramer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +155,7 @@ public class EcuacionView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
