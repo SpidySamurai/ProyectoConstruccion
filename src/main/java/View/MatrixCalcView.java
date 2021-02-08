@@ -19,7 +19,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
         initComponents();
         initJTmatrixComponents();
         setLocationRelativeTo(null);
-           
+
     }
 
     public void initJTmatrixComponents() {
@@ -51,6 +51,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
             matrixAposX = 30;
             for (int j = 0; j < 5; j++) {
                 jTmatrixA[i][j].setHorizontalAlignment(JTextField.CENTER);
+                jTmatrixA[i][j].setEditable(false);
                 jPMatrixPanel.add(jTmatrixA[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixAposX, matrixAposY, WMATRIXBOX, HMATRIXBOX));
                 matrixAposX += 30;
             }
@@ -66,6 +67,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
             matrixBposX = 330;
             for (int j = 0; j < 5; j++) {
                 jTmatrixB[i][j].setHorizontalAlignment(JTextField.CENTER);
+                jTmatrixB[i][j].setEditable(false);
                 jPMatrixPanel.add(jTmatrixB[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixBposX, matrixBposY, WMATRIXBOX, HMATRIXBOX));
                 matrixBposX += 30;
             }
@@ -79,8 +81,8 @@ public class MatrixCalcView extends javax.swing.JFrame {
         for (int i = 0; i < 5; i++) {
             matrixRposX = 180;
             for (int j = 0; j < 5; j++) {
-                jTmatrixResult[i][j].setEditable(false);
                 jTmatrixResult[i][j].setHorizontalAlignment(JTextField.CENTER);
+                jTmatrixResult[i][j].setEditable(false);
                 jPMatrixPanel.add(jTmatrixResult[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX, HMATRIXBOX));
                 matrixRposX += 30;
             }
@@ -89,12 +91,46 @@ public class MatrixCalcView extends javax.swing.JFrame {
     }
 
     public void showMatrixResult(float[][] resultData) {
+        clearMatrixResult(resultData.length, resultData[0].length);
         for (int i = 0; i < resultData.length; i++) {
             for (int j = 0; j < resultData[i].length; j++) {
-                jTmatrixResult[i][j].setText(String.valueOf(resultData[i][j]));
+                jTmatrixResult[i][j].setText(String.format("%.2f", resultData[i][j]));
             }
         }
-        
+    }
+
+    public void habilitarMatrixA(int row, int column) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (i >= row || j >= column) {
+                    jTmatrixA[i][j].setEditable(false);
+                    jTmatrixA[i][j].setText("");
+                } else {
+                    jTmatrixA[i][j].setEditable(true);
+                }
+            }
+        }
+    }
+
+    public void habilitarMatrixB(int row, int column) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (i >= row || j >= column) {
+                    jTmatrixB[i][j].setEditable(false);
+                    jTmatrixB[i][j].setText("");
+                } else {
+                    jTmatrixB[i][j].setEditable(true);
+                }
+            }
+        }
+    }
+
+    public void clearMatrixResult(int row, int column) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                jTmatrixResult[i][j].setText("");
+            }
+        }
     }
 
     public JButton getjBAinverse() {
@@ -148,7 +184,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
     public JButton getjBBtrans() {
         return jBBtrans;
     }
-    
+
     public JTextField[][] getjTmatrixA() {
         return jTmatrixA;
     }
@@ -180,9 +216,15 @@ public class MatrixCalcView extends javax.swing.JFrame {
     public JTextField getjTBdeterminante() {
         return jTBdeterminante;
     }
-    
-    
-   
+
+    public JButton getJbSetB() {
+        return JbSetB;
+    }
+
+    public JButton getjBSetA() {
+        return jBSetA;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,9 +253,6 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jBAtrans = new javax.swing.JButton();
         jBAperScalar = new javax.swing.JButton();
         jBBperScalar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         jTBScalar = new javax.swing.JTextField();
         jTAScalar = new javax.swing.JTextField();
         jTBdeterminante = new javax.swing.JTextField();
@@ -222,6 +261,8 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jBDetA = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jBSetA = new javax.swing.JButton();
+        JbSetB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -234,20 +275,20 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jPMatrixPanel.add(jLTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 500, -1));
 
         jLFILA.setText("Fila");
-        jPMatrixPanel.add(jLFILA, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 80, -1, -1));
+        jPMatrixPanel.add(jLFILA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jLCOL.setText("Columna");
-        jPMatrixPanel.add(jLCOL, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+        jPMatrixPanel.add(jLCOL, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLFILAB.setText("Fila");
-        jPMatrixPanel.add(jLFILAB, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 80, -1, -1));
+        jPMatrixPanel.add(jLFILAB, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
         jLCOLB.setText("Columna");
-        jPMatrixPanel.add(jLCOLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
-        jPMatrixPanel.add(jTFilaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 30, -1));
-        jPMatrixPanel.add(jTColumnaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 30, -1));
-        jPMatrixPanel.add(jTFilaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 30, -1));
-        jPMatrixPanel.add(jTColumnaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 30, -1));
+        jPMatrixPanel.add(jLCOLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
+        jPMatrixPanel.add(jTFilaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 30, -1));
+        jPMatrixPanel.add(jTColumnaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 30, -1));
+        jPMatrixPanel.add(jTFilaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 30, -1));
+        jPMatrixPanel.add(jTColumnaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 30, -1));
 
         jBAplusB.setText("A + B");
         jPMatrixPanel.add(jBAplusB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 80, -1));
@@ -275,17 +316,8 @@ public class MatrixCalcView extends javax.swing.JFrame {
 
         jBBperScalar.setText("B *  N");
         jPMatrixPanel.add(jBBperScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 80, -1));
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPMatrixPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 0, 10, 500));
-
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPMatrixPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 50, 500));
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPMatrixPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 0, 10, 500));
-        jPMatrixPanel.add(jTBScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, -1));
-        jPMatrixPanel.add(jTAScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 30, -1));
+        jPMatrixPanel.add(jTBScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 30, -1));
+        jPMatrixPanel.add(jTAScalar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 30, -1));
 
         jTBdeterminante.setEditable(false);
         jPMatrixPanel.add(jTBdeterminante, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 30, -1));
@@ -300,10 +332,16 @@ public class MatrixCalcView extends javax.swing.JFrame {
         jPMatrixPanel.add(jBDetA, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
         jLabel1.setText("Escalar");
-        jPMatrixPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        jPMatrixPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
         jLabel2.setText("Escalar");
-        jPMatrixPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+        jPMatrixPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        jBSetA.setText("OK");
+        jPMatrixPanel.add(jBSetA, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, 20));
+
+        JbSetB.setText("OK");
+        jPMatrixPanel.add(JbSetB, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -313,7 +351,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
         );
 
         pack();
@@ -355,6 +393,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JbSetB;
     private javax.swing.JButton jBAinverse;
     private javax.swing.JButton jBAminusB;
     private javax.swing.JButton jBAperB;
@@ -366,6 +405,7 @@ public class MatrixCalcView extends javax.swing.JFrame {
     private javax.swing.JButton jBBtrans;
     private javax.swing.JButton jBDetA;
     private javax.swing.JButton jBDetB;
+    private javax.swing.JButton jBSetA;
     private javax.swing.JLabel jLCOL;
     private javax.swing.JLabel jLCOLB;
     private javax.swing.JLabel jLFILA;
@@ -374,9 +414,6 @@ public class MatrixCalcView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPMatrixPanel;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTAScalar;
     private javax.swing.JTextField jTAdeterminante;
     private javax.swing.JTextField jTBScalar;

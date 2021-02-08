@@ -22,6 +22,7 @@ public class EcuacionView extends javax.swing.JFrame {
     public EcuacionView() {
         initComponents();
         initJTmatrixComponents();
+        setLocationRelativeTo(null);
     }
 
     public void initJTmatrixComponents() {
@@ -64,7 +65,7 @@ public class EcuacionView extends javax.swing.JFrame {
             for (int j = 0; j < 5; j++) {
                 jTmatrixResult[i].setEditable(false);
                 jTmatrixResult[i].setHorizontalAlignment(JTextField.CENTER);
-                jPMatrixPanel.add(jTmatrixResult[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX*2, HMATRIXBOX));
+                jPMatrixPanel.add(jTmatrixResult[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixRposX, matrixRposY, WMATRIXBOX * 2, HMATRIXBOX));
             }
             matrixRposY += 30;
         }
@@ -73,9 +74,21 @@ public class EcuacionView extends javax.swing.JFrame {
     public void showResult(float[][] resultData) {
         for (int i = 0; i < resultData.length; i++) {
             for (int j = 0; j < resultData[i].length; j++) {
-            jTmatrixResult[i].setText(String.format("%.2f", resultData[i][j]));
+                jTmatrixResult[i].setText(String.format("%.2f", resultData[i][j]));
             }
         }
+    }
+
+    public void cleabBlankSpaceA(int row, int column) {
+        
+    }
+
+    public void cleabBlankSpaceB(int row, int column) {
+
+    }
+
+    public void cleabBlankSpaceResult(int row, int column) {
+
     }
 
     public JButton getjBCramer() {
@@ -97,8 +110,6 @@ public class EcuacionView extends javax.swing.JFrame {
     public JTextField[][] getjTmatrix() {
         return jTmatrix;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,7 +122,6 @@ public class EcuacionView extends javax.swing.JFrame {
 
         jPMatrixPanel = new javax.swing.JPanel();
         jLTittle = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLFILA = new javax.swing.JLabel();
         jTFilaA = new javax.swing.JTextField();
         jLCOL = new javax.swing.JLabel();
@@ -119,7 +129,7 @@ public class EcuacionView extends javax.swing.JFrame {
         jBGauss = new javax.swing.JButton();
         jBCramer = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 500, 500));
         setResizable(false);
 
@@ -129,9 +139,6 @@ public class EcuacionView extends javax.swing.JFrame {
         jLTittle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTittle.setText("Sistemas de ecuaciones");
         jPMatrixPanel.add(jLTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 500, -1));
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPMatrixPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 10, 500));
 
         jLFILA.setText("Fila");
         jPMatrixPanel.add(jLFILA, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
@@ -155,7 +162,7 @@ public class EcuacionView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -203,7 +210,6 @@ public class EcuacionView extends javax.swing.JFrame {
     private javax.swing.JLabel jLFILA;
     private javax.swing.JLabel jLTittle;
     private javax.swing.JPanel jPMatrixPanel;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTColumnaA;
     private javax.swing.JTextField jTFilaA;
     // End of variables declaration//GEN-END:variables

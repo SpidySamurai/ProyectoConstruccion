@@ -36,11 +36,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
     public JButton getjBSistemaEcuaciones() {
         return jBSistemaEcuaciones;
-    }
-    
-    
-    
-    
+    }  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,14 +64,13 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Proyecto Construccion de software");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 49));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 400, 49));
 
-        jBCalcMatrix.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jBCalcMatrix.setText("Calculadora de Matrices");
-        jPanel1.add(jBCalcMatrix, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jPanel1.add(jBCalcMatrix, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         jBSistemaEcuaciones.setText("Sistemas de ecuaciones");
-        jPanel1.add(jBSistemaEcuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+        jPanel1.add(jBSistemaEcuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
         jMenu1.setText("?");
 
