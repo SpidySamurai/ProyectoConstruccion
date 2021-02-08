@@ -24,6 +24,9 @@ class EcuacionController implements ActionListener {
     private final EcuacionView ecuacionView;
     private final EcuacionModel ecuacionModel;
 
+    private int row;
+    private int column;
+
     public EcuacionController() {
         ecuacionView = new EcuacionView();
         ecuacionModel = new EcuacionModel();
@@ -37,6 +40,7 @@ class EcuacionController implements ActionListener {
     private void addListener() {
         ecuacionView.getjBCramer().addActionListener(this);
         ecuacionView.getjBGauss().addActionListener(this);
+        ecuacionView.getjBSetMatrix().addActionListener(this);
     }
 
     private Matrix sintetizarMatrix(JTextField[][] matrix, int rowMatrix, int columnMatrix) {
@@ -55,27 +59,40 @@ class EcuacionController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (ecuacionView.getjBSetMatrix() == e.getSource()) {
+            String rowAString = ecuacionView.getjTColumnaA().getText();
+            String columnAString = ecuacionView.getjTColumnaA().getText();
+            if (Verify.verifyNumber(rowAString, columnAString)) {
+                row = Integer.parseInt(ecuacionView.getjTFilaA().getText());
+                column = Integer.parseInt(ecuacionView.getjTColumnaA().getText());
+                if (Verify.verifySize(row, column)) {
+                    ecuacionView.habilitarMatrixA(row, column);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna de la Matriz A es menor que 1 o mayor que 5.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe ingresar unicamente valores numericos.");
+            }
+        }
         if (ecuacionView.getjBCramer() == e.getSource()) {
-            int row = Integer.parseInt(ecuacionView.getjTFilaA().getText());
-            int columnA = Integer.parseInt(ecuacionView.getjTColumnaA().getText());
-            if (Verify.verifySize(row, columnA)) {
-                Matrix matrix = sintetizarMatrix(ecuacionView.getjTmatrix(), row, columnA);
+            if (Verify.veryBlankMatrix(ecuacionView.getjTmatrix(), row, column)) {
+                Matrix matrix = sintetizarMatrix(ecuacionView.getjTmatrix(), row, column);
                 float dataResult[][] = ecuacionModel.cramer(matrix);
                 ecuacionView.showResult(dataResult);
             } else {
-                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+                JOptionPane.showMessageDialog(null, "Alguna casilla de matriz esta vacia o no es numerica.");
             }
+
         }
         if (ecuacionView.getjBGauss() == e.getSource()) {
-            int row = Integer.parseInt(ecuacionView.getjTFilaA().getText());
-            int columnA = Integer.parseInt(ecuacionView.getjTColumnaA().getText());
-            if (Verify.verifySize(row, columnA)) {
-                Matrix matrix = sintetizarMatrix(ecuacionView.getjTmatrix(), row, columnA);
+            if (Verify.veryBlankMatrix(ecuacionView.getjTmatrix(), row, column)) {
+                Matrix matrix = sintetizarMatrix(ecuacionView.getjTmatrix(), row, column);
                 float dataResult[][] = ecuacionModel.sistemaGauss(matrix);
                 ecuacionView.showResult(dataResult);
             } else {
-                JOptionPane.showMessageDialog(null, "El tama;o de alguna fila o columna es mayor a 5 o menor a 0");
+                JOptionPane.showMessageDialog(null, "Alguna casilla de matriz esta vacia o no es numerica.");
             }
+
         }
     }
 }

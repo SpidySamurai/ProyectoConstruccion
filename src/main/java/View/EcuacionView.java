@@ -50,6 +50,7 @@ public class EcuacionView extends javax.swing.JFrame {
             matrixAposX = 175;
             for (int j = 0; j < 5; j++) {
                 jTmatrix[i][j].setHorizontalAlignment(JTextField.CENTER);
+                jTmatrix[i][j].setEditable(false);
                 jPMatrixPanel.add(jTmatrix[i][j], new org.netbeans.lib.awtextra.AbsoluteConstraints(matrixAposX, matrixAposY, WMATRIXBOX, HMATRIXBOX));
                 matrixAposX += 30;
             }
@@ -75,6 +76,19 @@ public class EcuacionView extends javax.swing.JFrame {
         for (int i = 0; i < resultData.length; i++) {
             for (int j = 0; j < resultData[i].length; j++) {
                 jTmatrixResult[i].setText(String.format("%.2f", resultData[i][j]));
+            }
+        }
+    }
+    
+   public void habilitarMatrixA(int row, int column) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (i >= row || j >= column) {
+                    jTmatrix[i][j].setEditable(false);
+                    jTmatrix[i][j].setText("");
+                } else {
+                    jTmatrix[i][j].setEditable(true);
+                }
             }
         }
     }
@@ -111,6 +125,10 @@ public class EcuacionView extends javax.swing.JFrame {
         return jTmatrix;
     }
 
+    public JButton getjBSetMatrix() {
+        return jBSetMatrix;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,6 +146,7 @@ public class EcuacionView extends javax.swing.JFrame {
         jTColumnaA = new javax.swing.JTextField();
         jBGauss = new javax.swing.JButton();
         jBCramer = new javax.swing.JButton();
+        jBSetMatrix = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 500, 500));
@@ -153,6 +172,9 @@ public class EcuacionView extends javax.swing.JFrame {
 
         jBCramer.setText("CRAMER");
         jPMatrixPanel.add(jBCramer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 90, -1));
+
+        jBSetMatrix.setText("OK");
+        jPMatrixPanel.add(jBSetMatrix, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,6 +228,7 @@ public class EcuacionView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCramer;
     private javax.swing.JButton jBGauss;
+    private javax.swing.JButton jBSetMatrix;
     private javax.swing.JLabel jLCOL;
     private javax.swing.JLabel jLFILA;
     private javax.swing.JLabel jLTittle;

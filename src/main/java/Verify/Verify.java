@@ -49,8 +49,8 @@ public abstract class Verify {
 
     public static boolean veryBlankMatrix(JTextField[][] matrix, int row, int column) {
         boolean verified = true;
-        for (int i = 0; i < column; i++) {
-            for (int j = 0; j < row; j++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 if (!verifyNumberScalar(matrix[i][j].getText())) {
                     System.out.println("Entre xd");
                     verified = false;

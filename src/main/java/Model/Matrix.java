@@ -1,5 +1,7 @@
 package Model;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Javier
@@ -43,6 +45,10 @@ public class Matrix {
     public void setData(float[][] data) {
         this.data = data;
         this.row = data.length;
-        this.column = data[0].length;
+        try {
+            this.column = data[0].length;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Ingresa el tama;o de la matriz...");
+        }
     }
 }

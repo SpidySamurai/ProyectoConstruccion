@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -91,11 +92,15 @@ public class MatrixCalcView extends javax.swing.JFrame {
     }
 
     public void showMatrixResult(float[][] resultData) {
+        try{
         clearMatrixResult(resultData.length, resultData[0].length);
         for (int i = 0; i < resultData.length; i++) {
             for (int j = 0; j < resultData[i].length; j++) {
                 jTmatrixResult[i][j].setText(String.format("%.2f", resultData[i][j]));
             }
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Es imposible realizar la operacion sin dados, prueba introducirlos.");
         }
     }
 
